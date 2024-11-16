@@ -13,10 +13,10 @@ export default function NavBar() {
   }
 
   return (
-    <nav className={`p-4 shadow-md w-full fixed top-0 bg-slate-800`}>
+    <nav className={`px-4 py-3 shadow-md w-full fixed top-0 bg-slate-800`}>
     <div className="flex justify-between items-center px-12">
       <div 
-        className="text-3xl cursor-pointer font-bold text-transparent bg-clip-text animate-color-gradient"
+        className="text-2xl cursor-pointer font-bold text-transparent bg-clip-text animate-color-gradient"
       >
         CompileBox
       </div>

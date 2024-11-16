@@ -131,21 +131,22 @@ const Home = () => {
         <p className="text-slate-300">Loading user information...</p>
       ) : user ? (
         <div className="bg-slate-700 p-6 rounded-lg shadow-lg">
-          <h1 className="text-4xl font-semibold mb-1">
+          <h1 className="text-2xl font-semibold">
             Welcome, {user.name}
           </h1>
-          <h2 className="text-lg text-slate-300 mb-2">Your existing projects:</h2>
+          <h2 className="text-sm text-slate-300 mb-2">Your existing projects:</h2>
           
           {user.projects && user.projects.length > 0 ? (
             <ul>
               {user.projects.map((currentProject, index) => (
                 <li
                   key={currentProject.createdAt}
-                  className={`py-2 px-4 w-7/12 text-lg text-slate-100 bg-slate-600 rounded-lg mb-3 
-                    cursor-pointer transition-transform transform hover:-translate-y-2 hover:shadow-2xl hover:brightness-110
-                    ${colorClass[currentProject.technology]}`}
                 > 
-                  <div className="flex flex-col w-full">
+                  <div 
+                    className={`flex flex-col w-3/4 py-2 px-4 text-md text-slate-100 bg-slate-600 rounded-lg mb-3 
+                      cursor-pointer transition-transform transform hover:-translate-y-2 hover:shadow-2xl hover:brightness-110
+                      ${colorClass[currentProject.technology]}`}
+                  >
                     <div className="flex flex-row justify-between items-center m-0">
                       <div 
                         className="flex flex-col"
@@ -166,7 +167,7 @@ const Home = () => {
                             : currentProject?.technology === 'vite-template'
                             ? '/react-original.svg'
                             : ''
-                        } height={32} width={32} alt="" />
+                        } height={27} width={27} alt="" />
                         <div
                           className="cursor-pointer pl-1 border-l-2 border-slate-700 "
                           onMouseEnter={() => handleMouseEnter(index)} 
@@ -175,7 +176,7 @@ const Home = () => {
                             handleDeleteProject(currentProject?.name)
                           }} 
                         >
-                          <Player ref={(el) => {playerRefs.current[index] = el}} size={30} icon={TRASH_ICON} />
+                          <Player ref={(el) => {playerRefs.current[index] = el}} size={25} icon={TRASH_ICON} />
                         </div>
                       </div>
                     </div>
@@ -191,9 +192,9 @@ const Home = () => {
         <p className="text-slate-400">No user information available.</p>
       )}
     </div>
-    <div className="create-project h-64 mt-24 w-1/2 bg-slate-700 p-6 rounded-lg shadow-lg">
-      <h2 className="text-4xl font-semibold mb-1">Want to start a new project?</h2>
-      <p className="text-slate-300 mb-4">Give the project a unique name, it must be at least 8 characters.</p>
+    <div className="create-project h-fit mt-24 w-1/2 bg-slate-700 p-6 rounded-lg shadow-lg">
+      <h2 className="text-2xl font-semibold">Want to start a new project?</h2>
+      <p className="text-slate-300 mb-4 text-sm">Give the project a unique name, it must be at least 8 characters.</p>
       
       <div className="flex flex-col gap-4 items-center">
         {/* Input for project name */}
@@ -203,7 +204,7 @@ const Home = () => {
           placeholder="Project name"
           value={newProject}
           onChange={(e) => setNewProject(e.target.value)}
-          className="input p-3 w-full text-gray-900 rounded-lg border border-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-800"
+          className="input p-2 w-full text-gray-900 rounded-lg border border-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-800"
         />
 
         {/* Dropdown selector */}
@@ -211,7 +212,7 @@ const Home = () => {
         </div>
         <button 
           onClick={handleAddProject} 
-          className="w-24 text-white bg-gradient-to-br from-purple-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-lg px-5 py-2.5 text-center mb-8"
+          className="w-24 text-white bg-gradient-to-br from-purple-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-2 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-md px-5 py-2 text-center my-2"
         >
           <span className="relative z-10">Create</span>
         </button>

@@ -27,10 +27,10 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({ onSelect }) => {
   };
 
   return (
-    <div className="relative w-64">
+    <div className="relative w-56">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-slate-600 w-full p-3 text-white rounded-lg border border-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-400 flex items-center justify-between"
+        className="bg-slate-600 w-full p-2 text-white rounded-lg border border-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-400 flex items-center justify-between"
       >
         <div className="flex items-center gap-2">
           {selectedOption ? (
@@ -44,7 +44,7 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({ onSelect }) => {
               <span>{selectedOption.label}</span>
             </>
           ) : (
-            <span className='text-slate-200 text-md'>Select Technology</span>
+            <span className='text-slate-200 text-sm'>Select Technology</span>
           )}
         </div>
         <span className="ml-2">&#x25BC;</span>
@@ -55,7 +55,7 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({ onSelect }) => {
             <li
               key={option.value}
               onClick={() => handleSelect(option)}
-              className={`flex items-center ${index !== options.length - 1 && "border-b-2"} border-slate-500 p-3 hover:bg-slate-600 cursor-pointer`}
+              className={`flex items-center ${index !== options.length - 1 && "border-b-2"} border-slate-500 p-2 hover:bg-slate-600 cursor-pointer`}
             >
               <Image
                 src={option.icon}
