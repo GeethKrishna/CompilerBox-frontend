@@ -19,6 +19,7 @@ const Home = () => {
   const { user, isLoading, addProject,deleteProject, setSelectedProject } = useUserStore();
   const [newProject, setNewProject] = useState('');
   const [newTechnology, setNewTechnology] = useState('');
+  const [isCreating, setIsCreating] = useState(false);
   const playerRefs = useRef<(Player | null)[]>([]);
   //const router = useRouter();
 
@@ -30,6 +31,7 @@ const Home = () => {
   };
 
   async function createExistingContainer(project: string) {
+    setIsCreating(true);
     const response = await fetch('https://newhelperfunction.azurewebsites.net/api/createContainer', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -48,8 +50,10 @@ const Home = () => {
     } else {
       console.error(`Error creating container.`);
     }
+    setIsCreating(false);
   }
   async function createNewContainer(project: string, technology: string) {
+    setIsCreating(true);
     const response = await fetch('https://newhelperfunction.azurewebsites.net/api/createContainer', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -68,6 +72,7 @@ const Home = () => {
     } else {
       alert(`Error creating container.`);
     }
+    setIsCreating(false);
   }
 
   const handleAddProject = async () => {
@@ -125,6 +130,15 @@ const Home = () => {
 
   return (
   <div className="w-full flex flex-row justify-evenly h-screen bg-slate-900">
+    {isCreating && (
+      <div className="fixed inset-0 flex items-center justify-center bg-slate-900 bg-opacity-50 text-white text-2xl z-50">
+        <div className="flex items-center space-x-3">
+          <div className="loader w-6 h-6 border-4 border-t-4 border-white rounded-full animate-spin"></div>
+          <span>Loading...</span>
+        </div>
+      </div>
+    )}
+
     <NavBar />
     <div className="user-info mt-16 w-1/3 p-8">
       {isLoading ? (

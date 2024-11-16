@@ -36,7 +36,7 @@ export default function Page() {
       <NavBar />
       <main className="flex-1 flex flex-col items-center justify-center p-4 relative">
         <div className="text-center">
-          <p className="text-5xl font-bold mb-4">
+          <p className="text-5xl font-bold mb-4 ml-52 text-left">
             Welcome to
             <span className="text-5xl ml-3 cursor-pointer font-bold text-transparent bg-clip-text animate-color-gradient">
               <Typewriter
@@ -44,9 +44,9 @@ export default function Page() {
                 loop={true}
                 cursor
                 cursorStyle="_"
-                typeSpeed={100}
-                deleteSpeed={100}
-                delaySpeed={500}
+                typeSpeed={120}
+                deleteSpeed={120}
+                delaySpeed={2500}
               />
             </span>
           </p>
@@ -80,16 +80,20 @@ export default function Page() {
           </div>
 
           <SignedOut>
-            <p className="text-gray-400 mb-4">Sign in to get started</p>
-            <div className="space-x-4">
               <SignInButton mode="modal">
                 <button 
-                  className="text-white bg-gradient-to-br mr-3 from-purple-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-md px-5 py-2 text-center mb-8"
+                  className="text-white  bg-gradient-to-br mr-3 from-purple-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-md px-5 py-2 text-center mb-8"
                 >
                   Sign In
                 </button>
               </SignInButton>
-            </div>
+            <button 
+              onClick={() => router.push('/learn-more')}
+              type="button" 
+              className="text-white bg-gradient-to-br from-purple-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-md px-5 py-2 text-center mb-8"
+            >
+              Learn More
+            </button>
           </SignedOut>
 
           <SignedIn>
@@ -100,15 +104,14 @@ export default function Page() {
             >
               View Projects
             </button>
+            <button 
+              onClick={() => router.push('/learn-more')}
+              type="button" 
+              className="text-white bg-gradient-to-br from-purple-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-md px-5 py-2 text-center mb-8"
+            >
+              Learn More
+            </button>
           </SignedIn>
-
-          <button 
-            onClick={() => router.push('/learn-more')}
-            type="button" 
-            className="text-white bg-gradient-to-br from-purple-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-md px-5 py-2 text-center mb-8"
-          >
-            Learn More
-          </button>
         </div>
       </main>
 

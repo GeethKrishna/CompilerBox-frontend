@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useUserStore } from '@/stores/useUserStore';
 import { useParams } from 'next/navigation';
 import axios from 'axios';
 
@@ -16,7 +15,6 @@ interface FileListProps {
 }
 
 const FileList: React.FC<FileListProps> = ({ selectedFile, onSelectFile }) => {
-  const { user } = useUserStore();
   const {projectId} = useParams();
   const [files, setFiles] = useState<FileItem[]>([]);
   const [openFolders, setOpenFolders] = useState<Set<string>>(new Set());
@@ -159,7 +157,8 @@ const FileList: React.FC<FileListProps> = ({ selectedFile, onSelectFile }) => {
       {files.map(file => (
         <React.Fragment key={file.path}>
           <li
-            className='cursor-pointer p-2 my-0 rounded-md hover:bg-slate-800 hover:border-slate-500 hover:border-2 flex justify-between items-center'
+            className={`cursor-pointer p-2 my-0 rounded-md text-sm hover:bg-slate-800 
+            ${selectedFile === file.path ? 'bg-slate-800' : ''} hover:border-slate-500 hover:border-2 flex justify-between items-center`}
             onClick={() => (file.isDirectory ? toggleFolder(file) : onSelectFile(file.path))}
           >
             <span style={{ paddingLeft: `${indentLevel * 20}px` }}>
@@ -179,9 +178,9 @@ const FileList: React.FC<FileListProps> = ({ selectedFile, onSelectFile }) => {
 
               {/* Menu options */}
               {menuOpen === file.path && (
-                <ul className='absolute right-0 mt-2 w-32 bg-gray-800 text-white shadow-md rounded-md z-10'>
+                <ul className='absolute right-0 mt-2 w-24 bg-gray-700 text-white shadow-md rounded-md z-10'>
                   {!file.isDirectory && (<li
-                    className='p-2 hover:bg-slate-600 cursor-pointer'
+                    className='p-2 hover:bg-slate-600 cursor-pointer text-sm'
                     onClick={(e) => {
                       e.stopPropagation();
                       onDeleteFile(file.path);
@@ -191,7 +190,7 @@ const FileList: React.FC<FileListProps> = ({ selectedFile, onSelectFile }) => {
                     Delete
                   </li>)}
                   {file.isDirectory && (<li
-                    className='p-2 hover:bg-slate-600 cursor-pointer'
+                    className='p-2 hover:bg-slate-600 cursor-pointer text-sm'
                     onClick={(e) => {
                       e.stopPropagation();
                       onDeleteFolder(file.path);
@@ -201,7 +200,7 @@ const FileList: React.FC<FileListProps> = ({ selectedFile, onSelectFile }) => {
                     Delete
                   </li>)}
                   <li
-                    className='p-2 hover:bg-slate-600 cursor-pointer'
+                    className='p-2 hover:bg-slate-600 cursor-pointer text-sm'
                     onClick={(e) => {
                       e.stopPropagation();
                       onRename(file.path);
@@ -212,7 +211,7 @@ const FileList: React.FC<FileListProps> = ({ selectedFile, onSelectFile }) => {
                   </li>
                   {file.isDirectory && (
                     <li
-                      className='p-2 hover:bg-slate-600 cursor-pointer'
+                      className='p-2 hover:bg-slate-600 cursor-pointer text-sm'
                       onClick={(e) => {
                         e.stopPropagation();
                         onAddFile(file.path);
@@ -224,7 +223,7 @@ const FileList: React.FC<FileListProps> = ({ selectedFile, onSelectFile }) => {
                   )}
                   {file.isDirectory && (
                     <li
-                      className='p-2 hover:bg-slate-600 cursor-pointer'
+                      className='p-2 hover:bg-slate-600 cursor-pointer text-sm'
                       onClick={(e) => {
                         e.stopPropagation();
                         onAddFolder(file.path);
@@ -249,7 +248,7 @@ const FileList: React.FC<FileListProps> = ({ selectedFile, onSelectFile }) => {
   return (
     <div className="bg-slate-950 p-4 rounded-lg shadow-lg h-full overflow-y-scroll custom-scrollbar">
       <div className='flex flex-row justify-between items-center mb-2'>
-        <h3 className="text-xl font-semibold">📂 Base Directory</h3>
+        <h3 className="text-lg font-semibold">📂 Base Directory</h3>
         <div className='relative'>
           <button
             className='text-gray-400 hover:text-gray-200'

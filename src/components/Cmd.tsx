@@ -22,7 +22,7 @@ const Cmd = () => {
     // Initialize Xterm.js terminal
     const terminal = new Terminal({
       cursorBlink: true,
-      fontSize: 14,
+      fontSize: 12,
       theme: {
         background: '#1e1e1e', // Dark background
         foreground: '#dcdcdc', // Light text
@@ -64,11 +64,11 @@ const Cmd = () => {
   }, []);
 
   return (
-    <div className="flex items-center justify-center mt-2 bg-slate-950 rounded-lg p-4" style={{height: '32vh'}}>
+    <div className="flex items-center justify-center mt-2 bg-slate-950 rounded-lg p-4" style={{height: '28vh'}}>
       <div
         ref={terminalRef}
-        className="w-full max-w-4xl bg-black border-2 border-gray-700 shadow-lg"
-        style={{height: '30vh'}}
+        className="w-full max-w-3xl bg-black border-2 border-gray-700 shadow-lg"
+        style={{height: '25vh'}}
       ></div>
     </div>
   );

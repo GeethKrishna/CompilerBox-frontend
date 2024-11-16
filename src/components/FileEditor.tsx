@@ -78,38 +78,38 @@ const FileEditor: React.FC<FileEditorProps> = ({ filePath }) => {
 
   return (
     <div className="flex flex-col bg-slate-950 rounded-lg">
-      <div className='flex flex-row justify-between items-center p-4'>
-        <h3 className="text-xl">Editing the file: {filePath.slice(13)} </h3>
+      <div className='flex flex-row justify-between items-center p-3 '>
+        <h3 className="text-lg">Editing the file: {filePath.slice(13)} </h3>
         <div className='flex flex-row gap-4 items-center'>
           {status && (
-            <p className="mx-2 text-blue-600">
+            <p className="mx-2 text-md text-green-600">
               {isSaving ? `${status}${dots}` : status}
             </p>
           )}
           <button
             onClick={saveFile}
             disabled={isSaving}
-            className={`self-start bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 ${isSaving ? 'opacity-50 cursor-not-allowed' : ''}`}
+            className={`self-start text-sm bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 ${isSaving ? 'opacity-50 cursor-not-allowed' : ''}`}
           >
             Save file
           </button>
           <button
             onClick={saveFileToAzure}
             disabled={isSaving}
-            className={`self-start bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 ${isSaving ? 'opacity-50 cursor-not-allowed' : ''}`}
+            className={`self-start text-sm bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 ${isSaving ? 'opacity-50 cursor-not-allowed' : ''}`}
           >
-            Save the project
+            Save to cloud
           </button>
         </div>
       </div>
       <div className="flex-1 mx-4 mb-4">
         <MonacoEditor
-          height="400px"
+          height="330px"
           language={extractLanguage()}
           value={content}
           onChange={handleEditorChange}
           theme="vs-dark" // Set the theme to a darker style
-          options={{ fontSize: 14 }}
+          options={{ fontSize: 12 }}
           className="shadow-lg border-gray-700 border-2"
         />
       </div>

@@ -12,14 +12,6 @@ const container: Container = database.container(process.env.COSMOSDB_CONTAINER_N
 
 // Log connection attempt and status
 try {
-  console.log("Attempting to connect to Cosmos DB...");
-
-  // Log successful connection
-  console.log("Successfully connected to Cosmos DB.");
-  console.log(`Using Database: ${process.env.COSMOSDB_DATABASE_NAME}`);
-  console.log(`Using Container: ${process.env.COSMOSDB_CONTAINER_NAME}`);
-
-  // Optionally: Check if the container is accessible
   container.items.readAll().fetchAll().then(() => {
     console.log("Successfully fetched items from the container.");
   }).catch((err) => {

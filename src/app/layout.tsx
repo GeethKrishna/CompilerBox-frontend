@@ -9,7 +9,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <html lang="en">
         <ClerkUserSync/>
         <InitializeUSer/>
-        <body>{children}</body>
+        <body
+          className='bg-slate-900 text-white'
+        >{children}</body>
       </html>
     </ClerkProvider>
   )

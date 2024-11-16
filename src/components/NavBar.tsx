@@ -13,7 +13,7 @@ export default function NavBar() {
   }
 
   return (
-    <nav className={`px-4 py-3 shadow-md w-full fixed top-0 bg-slate-800`}>
+    <nav className={`px-4 py-3 shadow-md w-full fixed top-0 bg-slate-800 z-10`}>
     <div className="flex justify-between items-center px-12">
       <div 
         className="text-2xl cursor-pointer font-bold text-transparent bg-clip-text animate-color-gradient"
@@ -24,7 +24,7 @@ export default function NavBar() {
       <div className="flex items-center space-x-4">
         <SignedOut>
           <SignInButton mode="modal">
-            <button className="px-5 py-2 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition">
+            <button className="px-5 py-2 text-sm bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
               Sign In
             </button>
           </SignInButton>

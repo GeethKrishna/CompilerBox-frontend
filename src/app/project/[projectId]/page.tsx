@@ -58,7 +58,7 @@ export default function Project() {
   return (
     <div className="w-full bg-slate-900">
       <NavBar/>
-      <div className="flex mt-16" style={{height: '92vh'}}>
+      <div className="flex mt-14" style={{height: '92vh'}}>
         <div className="w-1/5 p-4 border-r border-gray-400">
           <FileList selectedFile={selectedFile} onSelectFile={handleSelectFile} />
         </div>
@@ -71,7 +71,7 @@ export default function Project() {
               </div>
             )
             :
-            <p className="text-gray-300 text-2xl text-center mt-10">Select a file to view its content</p>
+            <p className="text-gray-300 text-xl text-center mt-10">Select a file to view its content</p>
           }
         </div>
       </div>
