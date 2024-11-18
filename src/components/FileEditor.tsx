@@ -49,6 +49,10 @@ const FileEditor: React.FC<FileEditorProps> = ({ filePath }) => {
       return 'json';
     } else if(extension === 'txt') {
       return 'text';
+    } else if(extension === 'md') {
+      return 'markdown';
+    } else if(extension === 'gitignore') {
+      return 'gitignore';
     }
   }
 

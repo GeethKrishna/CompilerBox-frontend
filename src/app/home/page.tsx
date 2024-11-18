@@ -10,9 +10,9 @@ import { Player } from '@lordicon/react';
 const TRASH_ICON = require('@/app/assets/wired-outline-185-trash-bin-hover-empty (2).json');
 
 const colorClass: Record<string, string> = {
-  'node-template' : 'hover:shadow-green-600/70',
-  'template' : 'hover:shadow-purple-600/70',
-  'vite-template' : 'hover:shadow-blue-600/70',
+  'node-template' : 'hover:shadow-green-600/60',
+  'template' : 'hover:shadow-purple-600/60',
+  'vite-template' : 'hover:shadow-blue-600/60',
 }
 
 const Home = () => {
@@ -158,7 +158,7 @@ const Home = () => {
                 > 
                   <div 
                     className={`flex flex-col w-3/4 py-2 px-4 text-md text-slate-100 bg-slate-600 rounded-lg mb-3 
-                      cursor-pointer transition-transform transform hover:-translate-y-2 hover:shadow-2xl hover:brightness-110
+                      cursor-pointer transition-transform transform hover:-translate-y-2 hover:shadow-lg hover:brightness-110
                       ${colorClass[currentProject.technology]}`}
                   >
                     <div className="flex flex-row justify-between items-center m-0">

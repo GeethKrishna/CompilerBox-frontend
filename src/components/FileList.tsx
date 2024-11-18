@@ -261,7 +261,7 @@ const FileList: React.FC<FileListProps> = ({ selectedFile, onSelectFile }) => {
           </button>
           {/* Menu options */}
           {menuOpen === BASE_DIRECTORY && (
-            <ul className='absolute right-0 mt-2 w-32 bg-gray-800 text-white shadow-md rounded-md'>
+            <ul className='absolute right-0 mt-2 w-32 bg-gray-800 text-white shadow-md rounded-md z-10'>
               <li
                 className='p-2 hover:bg-gray-700 cursor-pointer'
                 onClick={(e) => {
